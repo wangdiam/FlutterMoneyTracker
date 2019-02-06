@@ -307,7 +307,11 @@ class HomePageState extends State<HomePage>{
                                     ),
                                   FlatButton(
                                     onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => AllDebitPage()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => AllDebitPage())).then((context){
+                                        getAllDebitHistoryFromDB();
+                                        getAllCreditHistoryFromDB();
+                                        recalculateLimit();
+                                      });
                                     },
                                     child: Icon(Icons.arrow_forward_ios,
                                       size: 14.0,
@@ -392,7 +396,11 @@ class HomePageState extends State<HomePage>{
                                       ),),
                                     FlatButton(
                                       onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => AllCreditPage()));
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => AllCreditPage())).then((context){
+                                          getAllDebitHistoryFromDB();
+                                          getAllCreditHistoryFromDB();
+                                          recalculateLimit();
+                                        });
                                       },
                                       child: Icon(Icons.arrow_forward_ios,
                                       size: 14.0,
