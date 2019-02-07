@@ -36,10 +36,17 @@ class EditTransactionInformationPageState extends State<EditTransactionInformati
       transactionData = data;
       if (data[0]['amount'] < 0) {
         parsedAmount = data[0]['amount'] * -1;
-        _radioValue = 0;
+        setState(() {
+          _radioValue = 0;
+          debitOrCredit = 0;
+        });
+
       } else {
         parsedAmount = data[0]['amount'];
-        _radioValue = 1;
+        setState(() {
+          _radioValue = 1;
+          debitOrCredit = 1;
+        });
       }
       titleController.text = data[0]['title'];
       descriptionController.text = data[0]['description'];
