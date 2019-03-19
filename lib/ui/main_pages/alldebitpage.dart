@@ -76,17 +76,17 @@ class AllDebitPageState extends State<AllDebitPage>{
         centerTitle: true,
         title: Text("DEBIT HISTORY",
           style: TextStyle(
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.w800,
               fontSize: 12.0
           ),),
       ),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              Colors.indigo[500],
-              Colors.indigo[600],
-              Colors.indigo[800],
-              Colors.indigo[900]
+              Color(0xff42475d),
+              Color(0xff3d4256),
+              Color(0xff363b4f),
+              Color(0xff2d3142),
             ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -103,7 +103,7 @@ class AllDebitPageState extends State<AllDebitPage>{
                 : ListView.builder(
                 itemCount: debitList.length,
                 itemBuilder: (context,i) => Card(
-                  color: Colors.indigo[400],
+                  color: Color(0xff3d4255),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(

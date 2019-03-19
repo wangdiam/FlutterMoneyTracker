@@ -65,6 +65,12 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
     return time;
   }
 
+  String getActualDateTime(int timestamp) {
+    var format = DateFormat('HH:mm a\ndd MMMM yy');
+    var date = DateTime.fromMillisecondsSinceEpoch(timestamp);
+    return format.format(date);
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -87,7 +93,7 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
             centerTitle: true,
             title: Text("TRANSACTION",
               style: TextStyle(
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w800,
                   fontSize: 12.0
               ),),
             actions: <Widget>[
@@ -142,6 +148,7 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
                     ],
                   ),
                   Card(
+                    color: Color(0xff3d4255),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
@@ -157,12 +164,12 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
                                     children: <Widget>[
                                       Text("CATEGORY",
                                       style: TextStyle(
-                                        fontWeight: FontWeight.w300,
+                                        fontWeight: FontWeight.w900,
                                         fontSize: 12.0
                                       ),),
                                       Text("TIME",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w300,
+                                            fontWeight: FontWeight.w900,
                                             fontSize: 12.0
                                         ),),
                                     ],
@@ -180,9 +187,10 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text(readTimestamp(transactionData[0]['time']),
+                                      child: Text(getActualDateTime(transactionData[0]['time']),
+                                        textAlign: TextAlign.end,
                                         style: TextStyle(
-                                            fontSize: 18.0,
+                                            fontSize: 12.0,
                                         ),),
                                     ),
                                   ],
@@ -193,7 +201,7 @@ class TransactionInformationPageState extends State<TransactionInformationPage>{
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text("DESCRIPTION",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w300,
+                                            fontWeight: FontWeight.w900,
                                             fontSize: 12.0
                                         ),),
                                     ),

@@ -12,7 +12,12 @@ class MoneyTrackerApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Money Tracker",
-      home: SafeArea(child: HomePage())
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Color(0xff42475d),
+        accentColor: Colors.pink,
+      ),
+      home: HomePage()
     );
   }
 }

@@ -51,8 +51,9 @@ class AddExpenditurePageState extends State<AddExpenditurePage> {
               fontSize: 12.0
           ),),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.greenAccent,
+        label: Text("Save"),
         onPressed: () {
         double amount = double.tryParse(amountController.text);
         if (titleController.text.toString().length != 0 && descriptionController.text.toString().length != 0 && amountController.text.toString().length != 0) {
@@ -67,7 +68,7 @@ class AddExpenditurePageState extends State<AddExpenditurePage> {
           Navigator.pop(context);
         }
       },
-      child: Icon(Icons.save),
+      icon: Icon(Icons.save),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
